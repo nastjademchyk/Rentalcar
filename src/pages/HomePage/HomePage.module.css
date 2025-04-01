@@ -1,0 +1,44 @@
+.wrapper {
+  background-image: url('../../assets/images/Homepage1x.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  min-height: 91vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-resolution: 192dpi) {
+  .wrapper {
+    background-image: url('../../assets/images/Homepage2x.png');
+  }
+}
+
+.header {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--white);
+  padding-bottom: 16px;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--white);
+  padding-bottom: 40px;
+}
+
+.main {
+  text-align: center;
+  padding-bottom: 60px;
+}

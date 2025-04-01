@@ -1,6 +1,22 @@
+@import './fonts.css';
+
+:root {
+  --font-family: 'Manrope', sans-serif;
+  --second-family: 'Inter', sans-serif;
+
+  text-align: center;
+  --main: #101828;
+  --gray: #8e929a;
+  --button: #3470ff;
+  --button-hover: #0b44cd;
+  --gray-light: #dadde1;
+  --badges: #f2f4f7;
+  --inputs: #f7f7f7;
+  --white: #ffffff;
+}
+
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
+  min-height: 100vh;
 }
 
 h1,
@@ -22,4 +38,18 @@ ol {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  outline: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
 }

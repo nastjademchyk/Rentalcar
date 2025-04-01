@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/Inter_18pt-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-display: swap;
+  src: url('./assets/fonts/Inter_28pt-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-display: swap;
+  src: url('./assets/fonts/Inter_18pt-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets//fonts//Manrope-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-weight: 500;
+  font-display: swap;
+  src: url('./assets/fonts//Manrope-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope';
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/Manrope-Bold.ttf') format('truetype');
+}

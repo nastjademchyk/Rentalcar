@@ -1,0 +1,27 @@
+.home {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: var(--main);
+}
+.home:hover {
+  color: var(--button-hover);
+}
+
+.wrapper {
+  border-bottom: 1px solid var(--badges);
+  padding: 24px 120px;
+  height: 68px;
+  background: var(--badges);
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav {
+  display: flex;
+  gap: 32px;
+}
