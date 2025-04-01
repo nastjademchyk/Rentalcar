@@ -1,0 +1,70 @@
+.header {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  padding-bottom: 8px;
+}
+.text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+  padding-bottom: 16px;
+}
+
+.wrapper {
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 32px;
+  width: 640px;
+  height: 488px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.formik {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.formik > *:last-child {
+  margin-bottom: 0;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.field {
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 576px;
+  height: 48px;
+  background: var(--inputs);
+  outline: none;
+  border: none;
+}
+
+.textarea {
+  border-radius: 12px;
+  padding: 12px 20px 56px 20px;
+  width: 576px;
+  height: 88px;
+  resize: none;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.date_picker {
+}

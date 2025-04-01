@@ -1,7 +1,7 @@
 import s from './SearchBtn.module.css';
 
-const SearchBtn = () => {
-  return <button className={s.btn}>Search</button>;
+const SearchBtn = ({ text }) => {
+  return <button className={s.btn}>{text}</button>;
 };
 
 export default SearchBtn;

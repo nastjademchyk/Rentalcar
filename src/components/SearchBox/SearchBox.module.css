@@ -1,0 +1,18 @@
+.brand {
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 204px;
+  height: 44px;
+  background: var(--inputs);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  border: none;
+}
+
+.form:not(:last-child) {
+  display: flex;
+  gap: 16px;
+}
