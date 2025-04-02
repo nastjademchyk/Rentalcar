@@ -1,9 +1,117 @@
 .catalogList {
+  margin-top: 56px;
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 48px 32px;
 }
 .catalogItem {
-  width: 276px;
+  flex-basis: calc((100% - 3 * 32px) / 4);
+
   height: 424px;
+}
+.carImage {
+  border-radius: 14px;
+  object-fit: cover;
+  width: 276px;
+  height: 268px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+}
+
+.mainInfo {
+  display: flex;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  justify-content: space-between;
+}
+
+.carBrand {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  color: var(--button);
+  position: relative;
+}
+.addressRentalCompany::after {
+  content: '';
+  background-color: var(--gray-light);
+  height: 16px;
+  display: inline-block;
+  width: 1px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.additionalInfo {
+  display: flex;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+
+.typeMileage {
+  display: flex;
+  margin-bottom: 28px;
+}
+
+.addressRentalCompany {
+  display: flex;
+  padding-bottom: 4px;
+}
+
+.accent {
+  color: var(--main);
+}
+
+.searchBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.typeMileage .additionalInfo::after {
+  content: '';
+  background-color: var(--gray-light);
+  height: 16px;
+  display: inline-block;
+  width: 1px;
+  vertical-align: middle;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.typeMileage .additionalInfo:last-child::after {
+  content: none;
+}
+
+.addressRentalCompany .additionalInfo::after {
+  content: '';
+  background-color: var(--gray-light);
+  height: 16px;
+  display: inline-block;
+  width: 1px;
+  vertical-align: middle;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.addressRentalCompany .additionalInfo:last-child::after {
+  content: none;
+}
+.city::after {
+  content: '';
+  background-color: var(--gray-light);
+  height: 16px;
+  display: inline-block;
+  width: 1px;
+  vertical-align: middle;
+  margin-left: 6px;
+  margin-right: 6px;
 }

@@ -35,17 +35,28 @@ const CatalogList = ({ cars }) => {
                 }}
               />
               <div className={s.carInfo}>
-                <h3>
-                  {brand} {model} ({year})
-                </h3>
-                <p>${rentalPrice}/day</p>
-                <p>{address}</p>
-                <p>{type}</p>
-                <p>{rentalCompany}</p>
-                <p>{mileage} km</p>
+                <div className={s.mainInfo}>
+                  <h3 className={s.carBrand}>
+                    <span className={s.accent}> {brand}</span> {model},{' '}
+                    <span className={s.accent}>{year}</span>
+                  </h3>
+                  <p>${rentalPrice}</p>
+                </div>
+                <div className={s.addressRentalCompany}>
+                  <p className={s.additionalInfo}>
+                    {' '}
+                    <span className={s.city}>{address.split(', ')[1]}</span>
+                    <span className={s.country}>{address.split(', ')[2]}</span>
+                  </p>
+                  <p className={s.additionalInfo}>{rentalCompany}</p>
+                </div>
+                <div className={s.typeMileage}>
+                  <p className={s.additionalInfo}>{type}</p>
+                  <p className={s.additionalInfo}>{mileage} km</p>
+                </div>
               </div>
             </Link>
-            <SearchBtn text="Read more" />
+            <SearchBtn text="Read more" className={s.searchBtn} />
           </li>
         )
       )}
