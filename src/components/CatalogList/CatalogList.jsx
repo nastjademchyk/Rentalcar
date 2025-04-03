@@ -35,10 +35,10 @@ const CatalogList = ({ cars }) => {
             />
             <div className={s.carInfo}>
               <div className={s.mainInfo}>
-                <h3 className={s.carBrand}>
+                <h2 className={s.carBrand}>
                   <span className={s.accent}> {brand}</span> {model},{' '}
                   <span className={s.accent}>{year}</span>
-                </h3>
+                </h2>
                 <p>${rentalPrice}</p>
               </div>
               <div className={s.addressRentalCompany}>

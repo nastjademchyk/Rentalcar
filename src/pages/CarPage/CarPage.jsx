@@ -3,6 +3,8 @@ import s from './CarPage.module.css';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getCarById } from '../../redux/operations.js';
+import BookForm from '../../components/BookForm/BookForm.jsx';
+import sprite from '../../assets/icons.svg';
 
 const CarPage = () => {
   const { id } = useParams();
@@ -39,32 +41,36 @@ const CarPage = () => {
   } = car;
   return (
     <div className={s.carPage}>
-      <img
-        src={img || defaultCarImage}
-        alt={`${brand} ${model}`}
-        className={s.carImage}
-      />
-      <h2>
-        {brand} {model}, {year}
-      </h2>
-      <p>
-        <strong>Price:</strong> ${rentalPrice}
-      </p>
-      <p>
-        <strong>Location:</strong> {address}
-      </p>
-      <p>
-        <strong>Company:</strong> {rentalCompany}
-      </p>
-      <p>
-        <strong>Type:</strong> {type}
-      </p>
-      <p>
-        <strong>Mileage:</strong> {mileage} km
-      </p>
-      <p>
-        <strong>Description:</strong> {description}
-      </p>
+      <div className={s.left}>
+        <img
+          src={img || defaultCarImage}
+          alt={`${brand} ${model}`}
+          className={s.carImage}
+        />
+        <BookForm />
+      </div>
+      <div className={s.right}>
+        <h2 className={s.carBrand}>
+          {brand} {model}, {year}
+        </h2>
+
+        <div className={s.addressRentalCompany}>
+          <div className={s.address}>
+            <svg className={s.icon} width="16" height="16">
+              <use href={`${sprite}#icon-Location`} />
+            </svg>
+            <p className={s.additionalInfo}>
+              <span className={s.city}>{address.split(', ')[1]}</span>
+              {', '}
+              <span className={s.country}>{address.split(', ')[2]}</span>
+            </p>
+            <p>Mileage: {mileage} km</p>
+          </div>
+          <p className={s.price}>${rentalPrice}</p>
+
+          <p>{description}</p>
+        </div>
+      </div>
     </div>
   );
 };

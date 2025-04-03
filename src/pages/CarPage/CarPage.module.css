@@ -1,0 +1,66 @@
+.carPage {
+  display: flex;
+  gap: 72px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 120px;
+  padding-bottom: 104px;
+}
+
+.carImage {
+  border-radius: 19px;
+  width: 640px;
+  height: 512px;
+  margin-bottom: 40px;
+}
+.left {
+  margin-top: 84px;
+}
+.right {
+  margin-top: 104px;
+}
+
+.carBrand {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: var(--main);
+  padding-bottom: 8px;
+}
+
+.price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--button);
+  padding-bottom: 32px;
+}
+
+.addressRentalCompany {
+  display: flex;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+
+  flex-direction: column;
+  text-align: left;
+}
+
+.carBrand {
+  display: flex;
+}
+
+.address {
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 16px;
+}
+.additionalInfo {
+  padding-right: 16px;
+  padding-left: 4px;
+}
