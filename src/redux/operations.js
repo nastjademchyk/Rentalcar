@@ -3,12 +3,24 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://car-rental-api.goit.global';
 
+// export const getCars = createAsyncThunk(
+//   'cars/getAllCars',
+//   async (params, thunkAPI) => {
+//     try {
+//       const response = await axios.get('/cars', { params });
+
+//       return response.data.cars;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const getCars = createAsyncThunk(
   'cars/getAllCars',
-  async (params, thunkAPI) => {
+  async (filters, thunkAPI) => {
     try {
-      const response = await axios.get('/cars', { params });
-
+      const response = await axios.get('/cars', { params: filters });
       return response.data.cars;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

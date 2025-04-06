@@ -32,6 +32,8 @@
   background: var(--inputs);
   border: none;
   appearance: none;
+  max-height: 272px;
+  overflow-y: auto;
 }
 
 .price {

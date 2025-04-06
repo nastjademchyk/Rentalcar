@@ -48,6 +48,7 @@ const CarPage = () => {
           alt={`${brand} ${model}`}
           className={s.carImage}
         />
+
         <BookForm />
       </div>
       <div className={s.right}>
