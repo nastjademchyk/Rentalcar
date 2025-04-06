@@ -3,6 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 48px 32px;
+  padding-bottom: 80px;
 }
 .catalogItem {
   flex-basis: calc((100% - 3 * 32px) / 4);
@@ -114,4 +115,13 @@
   vertical-align: middle;
   margin-left: 6px;
   margin-right: 6px;
+}
+
+.noCars {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  margin-top: 60px;
 }

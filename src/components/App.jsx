@@ -5,6 +5,7 @@ import Layout from './Layout.jsx';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage.jsx';
 
 import CarPage from '../pages/CarPage/CarPage.jsx';
+import Loader from './Loader/Loader.jsx';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('../pages/CatalogPage/CatalogPage.jsx'));
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <Suspense fallback={<div>Loading page....</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

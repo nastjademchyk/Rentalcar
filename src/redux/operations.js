@@ -8,7 +8,7 @@ export const getCars = createAsyncThunk(
   async (params, thunkAPI) => {
     try {
       const response = await axios.get('/cars', { params });
-      console.log('Response from API:', response.data);
+
       return response.data.cars;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -21,7 +21,7 @@ export const getCarById = createAsyncThunk(
   async (carId, thunkAPI) => {
     try {
       const response = await axios.get(`/cars/${carId}`);
-      console.log(response);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -34,7 +34,7 @@ export const getBrands = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/brands');
-      console.log(response);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

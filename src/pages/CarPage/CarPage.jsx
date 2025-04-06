@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { getCarById } from '../../redux/operations.js';
 import BookForm from '../../components/BookForm/BookForm.jsx';
 import sprite from '../../assets/icons.svg';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const CarPage = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const CarPage = () => {
   }, [id, car, dispatch]);
 
   if (!car) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   const {
@@ -34,10 +35,10 @@ const CarPage = () => {
     description,
     type,
     rentalCompany,
-    // rentalConditions,
-    // functionalities,
-    // fuelConsumption,
-    // engineSize,
+    rentalConditions,
+    functionalities,
+    fuelConsumption,
+    engineSize,
   } = car;
   return (
     <div className={s.carPage}>
@@ -67,8 +68,65 @@ const CarPage = () => {
             <p>Mileage: {mileage} km</p>
           </div>
           <p className={s.price}>${rentalPrice}</p>
-
           <p>{description}</p>
+          <div className={s.rentalConditions}>
+            <p className={s.titleRental}>Rental Conditions:</p>
+            <ul className={s.conditionList}>
+              {rentalConditions.map((condition, index) => (
+                <li key={index} className={s.conditionItem}>
+                  <svg className={s.iconCheck} width="16" height="16">
+                    <use href={`${sprite}#icon-check-circle`} />
+                  </svg>
+                  <span className={s.conditionText}>{condition}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={s.carSpecification}>
+            <p className={s.titleSpecification}>Car Specifications:</p>
+            <ul>
+              <li className={s.specification}>
+                <svg className={s.iconCheck} width="16" height="16">
+                  <use href={`${sprite}#icon-calendar`} />
+                </svg>{' '}
+                <p>Year: {year}</p>
+              </li>
+              <li className={s.specification}>
+                <svg className={s.iconCheck} width="16" height="16">
+                  <use href={`${sprite}#icon-car`} />
+                </svg>{' '}
+                <p>Type: {type}</p>
+              </li>
+              <li className={s.specification}>
+                <svg className={s.iconCheck} width="16" height="16">
+                  <use href={`${sprite}#icon-fuel-pump`} />
+                </svg>{' '}
+                <p>Fuel Consumption: {fuelConsumption}</p>
+              </li>
+              <li className={s.specification}>
+                <svg className={s.iconCheck} width="16" height="16">
+                  <use href={`${sprite}#icon-gear`} />
+                </svg>{' '}
+                <p>Engine Size: {engineSize}</p>
+              </li>
+            </ul>
+          </div>
+          <div className={s.accessories}>
+            <p className={s.titleSpecification}>
+              Accessories and functionalities:
+            </p>
+
+            <ul className={s.conditionList}>
+              {functionalities.map((condition, index) => (
+                <li key={index} className={s.conditionItem}>
+                  <svg className={s.iconCheck} width="16" height="16">
+                    <use href={`${sprite}#icon-check-circle`} />
+                  </svg>
+                  <span className={s.conditionText}>{condition}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

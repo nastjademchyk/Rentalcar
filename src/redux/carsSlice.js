@@ -7,6 +7,7 @@ const carsSlice = createSlice({
     cars: [],
     carDetails: null,
     brands: [],
+    totalCount: 0,
     loading: false,
     error: null,
   },

@@ -1,17 +1,22 @@
-import { RotatingLines } from 'react-loader-spinner';
+import ClipLoader from 'react-spinners/ClipLoader';
+import React from 'react';
+import s from './Loader.module.css';
 
-const Loader = () => {
+const Loader = ({ loading }) => {
+  const override = {
+    display: 'block',
+    margin: '0 auto',
+  };
+
   return (
-    <RotatingLines
-      visible={true}
-      height="96"
-      width="96"
-      color="grey"
-      strokeWidth="5"
-      animationDuration="0.75"
-      ariaLabel="rotating-lines-loading"
-      wrapperStyle={{}}
-      wrapperClass=""
+    <ClipLoader
+      className={s.loader}
+      color="blue"
+      loading={loading}
+      cssOverride={override}
+      size={100}
+      aria-label="Loading Spinner"
+      data-testid="loader"
     />
   );
 };

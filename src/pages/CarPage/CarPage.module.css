@@ -28,6 +28,7 @@
   text-align: center;
   color: var(--main);
   padding-bottom: 8px;
+  display: flex;
 }
 
 .price {
@@ -51,10 +52,6 @@
   text-align: left;
 }
 
-.carBrand {
-  display: flex;
-}
-
 .address {
   display: flex;
   align-items: baseline;
@@ -63,4 +60,56 @@
 .additionalInfo {
   padding-right: 16px;
   padding-left: 4px;
+}
+
+.rentalConditions {
+  padding-top: 68px;
+}
+.titleRental {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  padding-bottom: 20px;
+}
+
+.conditionItem {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  display: flex;
+  align-items: center;
+}
+
+.conditionList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.iconCheck {
+  margin-right: 8px;
+}
+
+.carSpecification {
+  margin-top: 110px;
+  margin-bottom: 110px;
+}
+
+.specification {
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.titleSpecification {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  padding-bottom: 20px;
 }
