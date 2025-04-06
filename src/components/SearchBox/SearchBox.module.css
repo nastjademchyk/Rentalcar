@@ -15,10 +15,96 @@
 .form:not(:last-child) {
   display: flex;
   gap: 16px;
+  align-items: flex-end;
 }
 
 .form {
   display: flex;
   justify-content: center;
   padding-top: 84px;
+}
+
+.selectPrice {
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 196px;
+  height: 44px;
+  background: var(--inputs);
+  border: none;
+  appearance: none;
+}
+
+.price {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+}
+
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+  padding-bottom: 8px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.fields {
+  display: flex;
+}
+
+.fieldRight {
+  border-right: 1px solid var(--gray-light);
+  border-radius: 12px 0 0 12px;
+  width: 160px;
+  height: 44px;
+  background: var(--inputs);
+  border-left: none;
+  border-bottom: none;
+  border-top: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  padding-left: 24px;
+}
+
+.fieldLeft {
+  border-radius: 0 12px 12px 0;
+  width: 160px;
+  height: 44px;
+  background: var(--inputs);
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+  padding-left: 24px;
+}
+
+.fieldRight::placeholder,
+.fieldLeft::placeholder {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.fieldRight::-webkit-outer-spin-button,
+.fieldRight::-webkit-inner-spin-button,
+.fieldLeft::-webkit-outer-spin-button,
+.fieldLeft::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
