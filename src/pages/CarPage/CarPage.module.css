@@ -54,7 +54,7 @@
 
 .address {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   padding-bottom: 16px;
 }
 .additionalInfo {

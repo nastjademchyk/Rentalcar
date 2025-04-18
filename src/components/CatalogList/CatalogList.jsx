@@ -12,15 +12,12 @@ const CatalogList = ({ cars }) => {
 
   const filteredCars = cars.filter(car => {
     const matchesBrand = brand ? car.brand === brand : true;
-
     const matchesPrice = price
-      ? parseInt(car.rentalPrice.replace('$', '')) <= Number(price)
+      ? parseInt(car.rentalPrice.replace('$', '').replace(',', '')) === price
       : true;
-
     const matchesMileageFrom = mileageFrom
       ? car.mileage >= Number(mileageFrom)
       : true;
-
     const matchesMileageTo = mileageTo
       ? car.mileage <= Number(mileageTo)
       : true;
@@ -58,11 +55,11 @@ const CatalogList = ({ cars }) => {
                 e.target.src = defaultCarImage;
               }}
             />
-            <div className={s.iconWrapper}>
+            <button type="button" className={s.iconWrapper}>
               <svg className={s.iconHeart} width="16" height="16">
                 <use href={`${sprite}#icon-heart1`} />
               </svg>
-            </div>
+            </button>
             <div className={s.carInfo}>
               <div className={s.mainInfo}>
                 <h2 className={s.carBrand}>

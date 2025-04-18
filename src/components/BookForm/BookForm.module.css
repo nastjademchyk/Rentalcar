@@ -68,3 +68,7 @@
 }
 .date_picker {
 }
+
+.error {
+  color: red;
+}

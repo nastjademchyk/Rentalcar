@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './SearchBox.module.css';
 import SearchBtn from '../SearchBtn/SearchBtn.jsx';
 import { useId } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../assets/icons.svg';
 
 import {
@@ -10,6 +10,7 @@ import {
   setMileageFilter,
   setPriceFilter,
 } from '../../redux/filterSlice.js';
+import { getBrands } from '../../redux/operations.js';
 
 const SearchBox = () => {
   const [brand, setBrand] = useState('');
@@ -21,11 +22,19 @@ const SearchBox = () => {
   const brandId = useId();
   const milageId = useId();
   const dispatch = useDispatch();
+  const brands = useSelector(state => state.brands.brands);
+  const filters = useSelector(state => state.filters);
+
+  useEffect(() => {
+    if (brands.length === 0) {
+      dispatch(getBrands());
+    }
+  }, [dispatch, brands.length]);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(setBrandFilter(brand));
-    dispatch(setPriceFilter(price));
+    dispatch(setPriceFilter(Number(price)));
     dispatch(setMileageFilter({ mileageFrom, mileageTo }));
   };
 
@@ -43,34 +52,12 @@ const SearchBox = () => {
           onChange={e => setBrand(e.target.value)}
         >
           <option value="">Choose a brand</option>
-
-          {[
-            'Aston Martin',
-            'Audi',
-            'BMW',
-            'Bentley',
-            'Buick',
-            'Chevrolet',
-            'Chrysler',
-            'GMC',
-            'HUMMER',
-            'Hyundai',
-            'Kia',
-            'Lamborghini',
-            'Land Rover',
-            'Lincoln',
-            'MINI',
-            'Mercedes-Benz',
-            'Mitsubishi',
-            'Nissan',
-            'Pontiac',
-            'Subaru',
-            'Volvo',
-          ].map(brand => (
-            <option key={brand} value={brand} className={s.brand}>
-              {brand}
-            </option>
-          ))}
+          {brands &&
+            brands.map(brand => (
+              <option key={brand} value={brand} className={s.brand}>
+                {brand}
+              </option>
+            ))}
         </select>
       </div>
       <div className={s.wrapper}>
@@ -85,7 +72,7 @@ const SearchBox = () => {
           onChange={e => setPrice(e.target.value)}
         >
           <option value="">Choose a price</option>
-          {[30, 40, 50, 60, 70, 80, 90, 100].map(price => (
+          {[30, 40, 50, 60, 70, 80].map(price => (
             <option key={price} value={price} className={s.price}>
               {price}
             </option>

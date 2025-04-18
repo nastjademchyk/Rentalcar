@@ -21,11 +21,14 @@ const carsSlice = createSlice({
 
       .addCase(getCars.fulfilled, (state, action) => {
         state.loading = false;
-        const newCars = action.payload.filter(
+
+        const newCars = action.payload.cars.filter(
           newCar =>
             !state.cars.some(existingCar => existingCar.id === newCar.id)
         );
+
         state.cars = [...state.cars, ...newCars];
+        state.totalCount = action.payload.totalCount;
       })
       .addCase(getCars.rejected, (state, action) => {
         state.loading = false;

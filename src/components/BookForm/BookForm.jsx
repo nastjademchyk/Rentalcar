@@ -5,6 +5,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import clsx from 'clsx';
 import SearchBtn from '../SearchBtn/SearchBtn';
+import * as Yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CustomDatePicker = ({ field, form, placeholder }) => {
   const { startDate, endDate } = form.values;
@@ -22,6 +24,7 @@ const CustomDatePicker = ({ field, form, placeholder }) => {
       customInput={
         <input
           {...field}
+          type="text"
           className={clsx(s.field, s.date_picker)}
           placeholder={placeholder}
         />
@@ -35,8 +38,20 @@ const BookForm = () => {
     startDate: null,
     endDate: null,
   });
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+    toast.success('Booking submitted successfully!');
+    actions.resetForm();
+  };
+
+  const FeedbackSchema = Yup.object().shape({
+    name: Yup.string().min(2, 'Too Short!').required('Required'),
+    email: Yup.string().email('Must be a valid email!').required('Required'),
+    comment: Yup.string(),
+  });
   return (
     <div className={s.wrapper}>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className={s.intro}>
         <h2 className={s.header}>Book your car now</h2>
         <p className={s.text}>
@@ -50,6 +65,8 @@ const BookForm = () => {
           date: [null, null],
           comment: '',
         }}
+        onSubmit={handleSubmit}
+        validationSchema={FeedbackSchema}
       >
         <Form className={s.formik}>
           <Field
@@ -58,12 +75,14 @@ const BookForm = () => {
             name="name"
             placeholder="Name*"
           />
+          <ErrorMessage name="name" component="span" className={s.error} />
           <Field
             className={s.field}
             type="email"
             name="email"
             placeholder="Email*"
           />
+          <ErrorMessage name="email" component="span" className={s.error} />
           <Field
             name="date"
             component={CustomDatePicker}
@@ -75,12 +94,11 @@ const BookForm = () => {
             name="comment"
             placeholder="Comment"
           />
+          <div className={s.btn_container}>
+            <SearchBtn className={s.btn} text="Submit" />
+          </div>
         </Form>
       </Formik>
-
-      <div className={s.btn_container}>
-        <SearchBtn className={s.btn} text="Submit" />
-      </div>
     </div>
   );
 };
