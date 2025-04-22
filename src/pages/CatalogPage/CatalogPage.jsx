@@ -64,6 +64,11 @@ const CatalogPage = () => {
           <LoadMoreBtn onClick={handleLoadMore} />
         </div>
       )}
+
+      {cars.length >= totalCount && (
+        <p className={s.noCars}>That’s everything we’ve got – for now 😉</p>
+      )}
+
       {error && <p>Error: {error}</p>}
     </div>
   );
