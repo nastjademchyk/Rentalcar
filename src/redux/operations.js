@@ -18,6 +18,18 @@ export const getCars = createAsyncThunk(
   }
 );
 
+export const getAllCars = createAsyncThunk(
+  'cars/getAllCarsFull',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/cars');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const getCarById = createAsyncThunk(
   'cars/getCarById',
   async (carId, thunkAPI) => {

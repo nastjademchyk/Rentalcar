@@ -4,6 +4,7 @@ import defaultCarImage from '../../assets/images/defaultCar.jpeg';
 import SearchBtn from '../SearchBtn/SearchBtn';
 import { useSelector } from 'react-redux';
 import sprite from '../../assets/icons.svg';
+import Heart from '../Heart/Heart.jsx';
 
 const CatalogList = ({ cars }) => {
   const { brand, price, mileageFrom, mileageTo } = useSelector(
@@ -26,10 +27,6 @@ const CatalogList = ({ cars }) => {
       matchesBrand && matchesPrice && matchesMileageFrom && matchesMileageTo
     );
   });
-
-  if (filteredCars.length === 0) {
-    return <p className={s.noCars}>No cars available</p>;
-  }
 
   return (
     <ul className={s.catalogList}>
@@ -55,11 +52,7 @@ const CatalogList = ({ cars }) => {
                 e.target.src = defaultCarImage;
               }}
             />
-            <button type="button" className={s.iconWrapper}>
-              <svg className={s.iconHeart} width="16" height="16">
-                <use href={`${sprite}#icon-heart1`} />
-              </svg>
-            </button>
+            <Heart carId={id} />
             <div className={s.carInfo}>
               <div className={s.mainInfo}>
                 <h2 className={s.carBrand}>

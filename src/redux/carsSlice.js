@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCars, getCarById, getBrands } from './operations';
+import { getCars, getCarById, getBrands, getAllCars } from './operations';
 
 const carsSlice = createSlice({
   name: 'cars',
   initialState: {
     cars: [],
+    allCars: [],
     carDetails: null,
     brands: [],
     totalCount: 0,
@@ -35,7 +36,13 @@ const carsSlice = createSlice({
         state.error =
           action.error.message || 'An error occurred while fetching cars';
       })
-
+      .addCase(getAllCars.pending, state => {
+        state.loading = true;
+      })
+      .addCase(getAllCars.fulfilled, (state, action) => {
+        state.allCars = action.payload;
+        state.loading = false;
+      })
       .addCase(getCarById.pending, state => {
         state.loading = true;
       })
