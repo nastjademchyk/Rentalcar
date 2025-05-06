@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useId, useState } from 'react';
+import { useState, forwardRef } from 'react';
 import s from './BookForm.module.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,8 +8,36 @@ import SearchBtn from '../SearchBtn/SearchBtn';
 import * as Yup from 'yup';
 import toast, { Toaster } from 'react-hot-toast';
 
-const CustomDatePicker = ({ field, form, placeholder }) => {
-  const { startDate, endDate } = form.values;
+const CustomInput = forwardRef(({ value, onClick, placeholder }, ref) => (
+  <input
+    type="text"
+    className={clsx(s.field, s.date_picker)}
+    onClick={onClick}
+    ref={ref}
+    value={value?.trim() === '' ? '' : value}
+    placeholder={'Booking date*'}
+    readOnly
+  />
+));
+
+const CustomDatePicker = ({ field, form, ...props }) => {
+  const [startDate, endDate] = form.values[field.name] || [];
+  const today = new Date();
+  const generateDateRange = (start, end) => {
+    let dates = [];
+    let currentDate = new Date(start);
+
+    while (currentDate <= end) {
+      dates.push(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    return dates;
+  };
+
+  const highlightDates =
+    startDate && endDate ? generateDateRange(startDate, endDate) : [];
+
   return (
     <DatePicker
       {...field}
@@ -21,14 +49,10 @@ const CustomDatePicker = ({ field, form, placeholder }) => {
       }}
       dateFormat="yyyy/MM/dd"
       selectsRange
-      customInput={
-        <input
-          {...field}
-          type="text"
-          className={clsx(s.field, s.date_picker)}
-          placeholder={placeholder}
-        />
-      }
+      minDate={today}
+      highlightDates={highlightDates}
+      popperClassName={s.datePickerPopper}
+      customInput={<CustomInput placeholder={props.placeholder} />}
     />
   );
 };
@@ -38,6 +62,7 @@ const BookForm = () => {
     startDate: null,
     endDate: null,
   });
+
   const handleSubmit = (values, actions) => {
     console.log(values);
     toast.success('Booking submitted successfully!');
@@ -48,7 +73,11 @@ const BookForm = () => {
     name: Yup.string().min(2, 'Too Short!').required('Required'),
     email: Yup.string().email('Must be a valid email!').required('Required'),
     comment: Yup.string(),
+    date: Yup.array()
+      .of(Yup.date().required('Date range is required'))
+      .min(2, 'Please select both start and end dates'),
   });
+
   return (
     <div className={s.wrapper}>
       <Toaster position="top-center" reverseOrder={false} />
@@ -88,6 +117,7 @@ const BookForm = () => {
             component={CustomDatePicker}
             placeholder="Booking date"
           />
+          <ErrorMessage name="date" component="span" className={s.error} />
           <Field
             className={clsx(s.field, s.textarea)}
             as="textarea"
@@ -102,4 +132,5 @@ const BookForm = () => {
     </div>
   );
 };
+
 export default BookForm;

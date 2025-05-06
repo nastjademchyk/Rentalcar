@@ -20,7 +20,8 @@
   border-radius: 10px;
   padding: 32px;
   width: 640px;
-  height: 488px;
+  height: auto;
+  min-height: 488px;
   background: var(--white);
   display: flex;
   flex-direction: column;
@@ -65,8 +66,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.date_picker {
 }
 
 .error {
