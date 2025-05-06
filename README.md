@@ -57,4 +57,4 @@ install npm run dev
 
 - name - Anastasiia Demchyk
 - email - NastjaDemchyk@gmail.com
-- [@nastjademchyk](https://github.com/nastjademchyk)
+- gitHub - [@nastjademchyk](https://github.com/nastjademchyk)
