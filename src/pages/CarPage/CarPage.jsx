@@ -6,6 +6,7 @@ import { getCarById } from '../../redux/operations.js';
 import BookForm from '../../components/BookForm/BookForm.jsx';
 import sprite from '../../assets/icons.svg';
 import Loader from '../../components/Loader/Loader.jsx';
+import { clearCarDetails } from '../../redux/carsSlice.js';
 
 const CarPage = () => {
   const { id } = useParams();
@@ -18,7 +19,11 @@ const CarPage = () => {
     if (!car) {
       dispatch(getCarById(id));
     }
-  }, [id, car, dispatch]);
+
+    return () => {
+      dispatch(clearCarDetails());
+    };
+  }, [id, dispatch]);
 
   if (!car) {
     return <Loader />;

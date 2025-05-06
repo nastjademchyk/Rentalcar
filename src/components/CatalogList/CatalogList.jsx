@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import defaultCarImage from '../../assets/images/defaultCar.jpeg';
 import SearchBtn from '../SearchBtn/SearchBtn';
 import { useSelector } from 'react-redux';
-import sprite from '../../assets/icons.svg';
 import Heart from '../Heart/Heart.jsx';
 
 const CatalogList = ({ cars }) => {

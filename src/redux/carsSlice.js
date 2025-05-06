@@ -12,7 +12,11 @@ const carsSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    clearCarDetails: state => {
+      state.carDetails = null;
+    },
+  },
   extraReducers: builder => {
     builder
 
@@ -71,5 +75,5 @@ const carsSlice = createSlice({
       });
   },
 });
-
+export const { clearCarDetails } = carsSlice.actions;
 export default carsSlice.reducer;
