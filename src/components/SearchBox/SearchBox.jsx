@@ -4,6 +4,7 @@ import SearchBtn from '../SearchBtn/SearchBtn.jsx';
 import { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../assets/icons.svg';
+import Select from 'react-select';
 
 import {
   setBrandFilter,
@@ -37,45 +38,92 @@ const SearchBox = () => {
     dispatch(setMileageFilter({ mileageFrom, mileageTo }));
   };
 
+  const brandOptions = brands.map(brand => ({
+    value: brand,
+    label: brand,
+  }));
+
+  const priceOptions = [30, 40, 50, 60, 70, 80].map(price => ({
+    value: price,
+    label: `${price}`,
+  }));
+
+  const customStyles = {
+    control: provided => ({
+      ...provided,
+      zIndex: 10,
+      borderRadius: '12px',
+      padding: '0',
+      width: '196px',
+      height: '44px',
+      background: 'var(--inputs)',
+      border: 'none',
+      boxShadow: 'none',
+      fontFamily: 'var(--font-family)',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '125%',
+      color: 'var(--main)',
+    }),
+    placeholder: provided => ({
+      ...provided,
+      color: 'var(--main)',
+      fontFamily: 'var(--font-family)',
+      fontWeight: 500,
+      fontSize: '16px',
+    }),
+    menu: provided => ({
+      ...provided,
+      zIndex: 1000,
+      maxHeight: '272px',
+      overflowY: 'auto',
+      borderRadius: '12px',
+      fontSize: '16px',
+      boxShadow: '0 4px 36px 0 rgba(0, 0, 0, 0.02)',
+      background: 'var(--white)',
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      background: 'var(--white)',
+      color:
+        state.isFocused || state.isSelected ? 'var(--main)' : 'var(--gray)',
+      fontFamily: 'var(--font-family)',
+      padding: '10px 16px',
+      cursor: 'pointer',
+    }),
+  };
+
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <div className={s.wrapper}>
         <label htmlFor={brandId} className={s.description}>
           Car brand
         </label>
-        <select
-          id={brandId}
-          name="brand"
-          className={s.selectPrice}
-          value={brand}
-          onChange={e => setBrand(e.target.value)}
-        >
-          <option value="">Choose a brand</option>
-          {brands.map(brand => (
-            <option key={brand} value={brand} className={s.brand}>
-              {brand}
-            </option>
-          ))}
-        </select>
+
+        <Select
+          inputId={brandId}
+          options={brandOptions}
+          value={brandOptions.find(option => option.value === brand)}
+          onChange={selected => setBrand(selected?.value || '')}
+          placeholder="Choose a brand"
+          styles={customStyles}
+          components={{ IndicatorSeparator: () => null }}
+        />
       </div>
       <div className={s.wrapper}>
         <label htmlFor={priceId} className={s.description}>
           Price/ 1 hour
         </label>
-        <select
-          id={priceId}
-          name="price"
-          className={s.selectPrice}
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        >
-          <option value="">Choose a price</option>
-          {[30, 40, 50, 60, 70, 80].map(price => (
-            <option key={price} value={price}>
-              {price}
-            </option>
-          ))}
-        </select>
+
+        <Select
+          inputId={priceId}
+          options={priceOptions}
+          value={priceOptions.find(option => option.value === Number(price))}
+          onChange={selected => setPrice(selected?.value || '')}
+          placeholder="Choose a price"
+          styles={customStyles}
+          components={{ IndicatorSeparator: () => null }}
+        />
       </div>
       <div className={s.wrapper}>
         <label htmlFor={milageId} className={s.description}>
