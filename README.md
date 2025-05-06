@@ -53,6 +53,8 @@ yup— schema validation for forms
 git clone https://github.com/your-username/rentalcar.git cd rentalcar npm
 install npm run dev
 
-👩‍💻 Author:
+## 👩‍💻 Author:
 
-Anastasiia Demchyk NastjaDemchyk@gmail.com https://github.com/nastjademchyk
+- name - Anastasiia Demchyk
+- email - NastjaDemchyk@gmail.com
+- [@nastjademchyk](https://github.com/nastjademchyk)
