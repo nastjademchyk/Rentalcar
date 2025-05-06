@@ -8,7 +8,7 @@
 .catalogItem {
   flex-basis: calc((100% - 3 * 32px) / 4);
   position: relative;
-  height: 424px;
+  max-height: 424px;
 }
 .carImage {
   border-radius: 14px;
@@ -27,6 +27,8 @@
   display: flex;
   padding-top: 16px;
   padding-bottom: 8px;
+  max-width: 276px;
+  overflow: hidden;
   justify-content: space-between;
 }
 
@@ -38,6 +40,7 @@
   color: var(--main);
   color: var(--button);
   position: relative;
+  white-space: nowrap;
 }
 .addressRentalCompany::after {
   content: '';
