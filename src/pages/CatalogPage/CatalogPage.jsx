@@ -54,11 +54,13 @@ const CatalogPage = () => {
         <CatalogList cars={filteredCars} />
       ) : (
         !loading && (
-          <p className={s.noCars}>No cars match your search criteria.</p>
+          <p className={s.noCars}>
+            No cars match your search criteria on this page.
+          </p>
         )
       )}
 
-      {filteredCars.length > 0 && cars.length < totalCount && !loading && (
+      {cars.length < totalCount && !loading && (
         <div className={s.loadMoreWrapper}>
           <LoadMoreBtn onClick={handleLoadMore} />
         </div>
