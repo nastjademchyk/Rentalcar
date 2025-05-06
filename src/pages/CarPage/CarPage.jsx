@@ -7,6 +7,7 @@ import BookForm from '../../components/BookForm/BookForm.jsx';
 import sprite from '../../assets/icons.svg';
 import Loader from '../../components/Loader/Loader.jsx';
 import { clearCarDetails } from '../../redux/carsSlice.js';
+import defaultCarImage from '../../assets/images/defaultCar.jpeg';
 
 const CarPage = () => {
   const { id } = useParams();

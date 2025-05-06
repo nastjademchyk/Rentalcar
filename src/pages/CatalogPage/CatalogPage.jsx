@@ -64,7 +64,7 @@ const CatalogPage = () => {
         </div>
       )}
 
-      {cars.length >= totalCount && (
+      {!loading && cars.length >= totalCount && (
         <p className={s.noCars}>That’s everything we’ve got – for now 😉</p>
       )}
 

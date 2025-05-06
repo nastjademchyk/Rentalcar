@@ -69,15 +69,27 @@ const BookForm = () => {
     actions.resetForm();
   };
 
+  // const FeedbackSchema = Yup.object().shape({
+  //   name: Yup.string().min(2, 'Too Short!').required('Required'),
+  //   email: Yup.string().email('Must be a valid email!').required('Required'),
+  //   comment: Yup.string(),
+  //   date: Yup.array()
+  //     .of(Yup.date().required('Date range is required'))
+  //     .min(2, 'Please select both start and end dates'),
+  // });
+
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').required('Required'),
     email: Yup.string().email('Must be a valid email!').required('Required'),
     comment: Yup.string(),
     date: Yup.array()
-      .of(Yup.date().required('Date range is required'))
-      .min(2, 'Please select both start and end dates'),
+      .min(2, 'Please select both start and end dates')
+      .test(
+        'dates-required',
+        'Date range is required',
+        value => value && value[0] && value[1]
+      ),
   });
-
   return (
     <div className={s.wrapper}>
       <Toaster position="top-center" reverseOrder={false} />
