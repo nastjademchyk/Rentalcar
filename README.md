@@ -1,12 +1,58 @@
-# React + Vite
+# 🚗 RentalCar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RentalCar is a frontend application for a car rental company that allows users
+to browse, filter, and book rental cars.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React + Vite — app framework and bundler
 
-## Expanding the ESLint configuration
+Redux Toolkit — state management
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React Router — routing
+
+Axios — HTTP requests
+
+CSS Modules — styling
+
+## 🧩 Features
+
+Home Page — banner with call-to-action and link to catalog
+
+Catalog Page — list of cars with pagination and filters:
+
+Filter by brand, price, and mileage
+
+Add/remove favorites (persisted in localStorage)
+
+Load more button (pagination via backend)
+
+Car Details Page — full car info and rental form
+
+Booking Form — validates input and shows success notification
+
+## 🔀 Routing
+
+/ — Home  
+/catalog — Catalog  
+ /catalog/:id — Car details
+
+## 📦 Libraries Used
+
+clsx — utility for constructing `className` strings conditionally  
+formik — form library for building forms with validation  
+modern-normalize — a modern, minimal CSS reset  
+react-datepicker — date picker for selecting rental dates  
+react-hot-toast — toasts for notifications (success/error messages)  
+react-redux— to integrate Redux with React  
+react-spinners — loading spinners for async actions  
+yup— schema validation for forms
+
+## 🚀 Getting Started
+
+git clone https://github.com/your-username/rentalcar.git cd rentalcar npm
+install npm run dev
+
+👩‍💻 Author:
+
+Anastasiia Demchyk NastjaDemchyk@gmail.com https://github.com/nastjademchyk
