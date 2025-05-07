@@ -1,8 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useState, forwardRef } from 'react';
+import 'react-datepicker/dist/react-datepicker.css';
 import s from './BookForm.module.css';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+
 import clsx from 'clsx';
 import SearchBtn from '../SearchBtn/SearchBtn';
 import * as Yup from 'yup';
@@ -117,12 +118,14 @@ const BookForm = () => {
             placeholder="Email*"
           />
           <ErrorMessage name="email" component="span" className={s.error} />
-          <Field
-            name="date"
-            component={CustomDatePicker}
-            placeholder="Booking date"
-          />
-          <ErrorMessage name="date" component="span" className={s.error} />
+          <div className={s.date_picker_wrapper}>
+            <Field
+              name="date"
+              component={CustomDatePicker}
+              placeholder="Booking date"
+            />
+            <ErrorMessage name="date" component="span" className={s.error} />
+          </div>
           <Field
             className={clsx(s.field, s.textarea)}
             as="textarea"
