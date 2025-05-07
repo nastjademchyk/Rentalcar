@@ -75,7 +75,7 @@ const SearchBox = () => {
     menu: provided => ({
       ...provided,
       zIndex: 1000,
-      maxHeight: '272px',
+      maxHeight: '296px',
       overflowY: 'auto',
       borderRadius: '12px',
       fontSize: '16px',
